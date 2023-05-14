@@ -1,0 +1,6 @@
+{-# LANGUAGE OverloadedStrings #-}
+
+data Expr = SLit String
+          | SAppend Expr Expr
+          | ILit Int
+          | IAdd Expr Expr

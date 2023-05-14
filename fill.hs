@@ -1,0 +1,12 @@
+import Data.Map hiding (foldr)
+
+-- using key/value
+fill' :: Int -> Int -> [((Int, Int), Int)] -> [((Int, Int), Int)]
+fill' a b defaults = assocs
+                   $ foldr (\(k, v) m -> insertWith (+) k v m) empty
+                   $ defaults ++ [((x,y),0) | x <- [1..a], y <- [1..b]]
+
+main = do
+
+--  print $ fill 3 3 [(1,2,2),(1,3,5),(3,2,3)]
+    print $ fill' 3 3 [((1,2),2),((1,3),5),((3,2),3)]
